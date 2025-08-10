@@ -7,13 +7,22 @@ int main() {
     double result = 0.0;
 
     printf("Enter the first number: ");
-    scanf("%lf", &firstNumber);
+    // Adding the error handling for the first number input
+    // This is important to ensure the program doesn't crash on invalid input
+    if(scanf("%lf", &firstNumber) != 1) {
+        printf("Error: Invalid input for the first number.\n");
+        return 1; // Exit the program because this is a fatal error
+    }
 
     printf("Enter the operator (+, -, *, /): ");
     scanf(" %c", &operator);
 
     printf("Enter the second number: ");
-    scanf("%lf", &secondNumber);
+    // Adding the error handling for the second number input
+    if(scanf("%lf", &secondNumber) != 1) {
+        printf("Error: Invalid input for the second number.\n");
+        return 1; // Exit the program because this is a fatal error
+    }
 
     switch (operator) {
         case '+':
